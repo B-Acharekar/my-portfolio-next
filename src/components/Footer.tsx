@@ -12,28 +12,28 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="bg-white dark:bg-gray-900 py-8 border-t border-gray-200 dark:border-gray-700"
+      className="bg-white dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-gray-800 py-10"
     >
-      <div className="max-w-7xl mx-auto px-6 flex flex-col gap-6 md:gap-0 md:flex-row justify-between items-center">
-        
-        {/* Left: Branding */}
-        <div className="text-center md:text-left text-sm text-gray-700 dark:text-gray-300">
-          © {year} <span className="font-semibold">Bhushan Acharekar</span> — All rights reserved.
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
+
+        {/* Left: Brand Info */}
+        <div className="text-center md:text-left text-sm text-gray-700 dark:text-gray-400">
+          © {year} <span className="font-semibold text-gray-900 dark:text-gray-100">Bhushan Acharekar</span>
         </div>
 
-        {/* Center: Built with */}
-        <div className="text-center text-sm text-gray-500 dark:text-gray-400">
-          Made with ❤️ using Next.js, Tailwind & Sanity
+        {/* Center: Build Info */}
+        <div className="text-center text-sm text-gray-500 dark:text-gray-500">
+          Built with Next.js, Tailwind CSS & Sanity
         </div>
 
-        {/* Right: Social Links */}
-        <div className="flex gap-4 text-lg text-gray-600 dark:text-gray-300">
+        {/* Right: Social Icons */}
+        <div className="flex gap-5 text-lg text-gray-600 dark:text-gray-300">
           <a
             href="mailto:bhushanacharekar1725@gmail.com"
             aria-label="Email"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-violet-600 transition transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-violet-400 rounded-full"
+            className="hover:text-violet-600 dark:hover:text-violet-400 transition-transform transform hover:scale-110 focus:outline-none"
           >
             <FaEnvelope />
           </a>
@@ -42,7 +42,7 @@ export default function Footer() {
             aria-label="GitHub"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-violet-600 transition transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-violet-400 rounded-full"
+            className="hover:text-violet-600 dark:hover:text-violet-400 transition-transform transform hover:scale-110 focus:outline-none"
           >
             <FaGithub />
           </a>
@@ -51,7 +51,7 @@ export default function Footer() {
             aria-label="LinkedIn"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-violet-600 transition transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-violet-400 rounded-full"
+            className="hover:text-violet-600 dark:hover:text-violet-400 transition-transform transform hover:scale-110 focus:outline-none"
           >
             <FaLinkedin />
           </a>
