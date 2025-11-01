@@ -2,83 +2,95 @@
 
 import { urlFor } from '@/sanity/lib/image';
 import { motion } from 'framer-motion';
+import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
 type Project = {
-    title: string;
-    description: string;
-    tech: string[];
-    githubUrl: string;
-    liveUrl?: string;
-    image: any;
-    delay?: number;
+  title: string;
+  description: string;
+  tech: string[];
+  githubUrl: string;
+  liveUrl?: string;
+  image: any;
+  delay?: number;
 };
 
 export default function ProjectCard({
-    title,
-    description,
-    tech,
-    githubUrl,
-    liveUrl,
-    image,
-    delay = 0,
+  title,
+  description,
+  tech,
+  githubUrl,
+  liveUrl,
+  image,
+  delay = 0,
 }: Project) {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay }}
-            viewport={{ once: true }}
-            className="group rounded-2xl overflow-hidden bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
-        >
-            <div className="w-full h-48 overflow-hidden">
-                <img
-                    src={urlFor(image).width(800).url()}
-                    alt={title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-            </div>
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay }}
+      viewport={{ once: true }}
+      className="group relative rounded-2xl overflow-hidden backdrop-blur-xl bg-white/70 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_0_25px_rgba(139,92,246,0.15)] transition-all duration-500"
+    >
+      {/* Gradient Hover Glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-            <div className="p-5 flex flex-col h-full">
-                <h3 className="text-xl font-bold text-violet-600">{title}</h3>
+      {/* Image */}
+      <div className="relative w-full h-52 overflow-hidden">
+        <img
+          src={urlFor(image).width(800).url()}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+      </div>
 
-                <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 line-clamp-3">
-                    {description}
-                </p>
+      {/* Content */}
+      <div className="relative p-6 flex flex-col justify-between min-h-[270px] z-10">
+        <div>
+          <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-violet-500 transition-colors duration-300">
+            {title}
+          </h3>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mt-4">
-                    {tech.map((item, idx) => (
-                        <span
-                            key={idx}
-                            className="bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-100 px-3 py-1 text-xs rounded-full"
-                        >
-                            {item}
-                        </span>
-                    ))}
-                </div>
+          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5 line-clamp-3">
+            {description}
+          </p>
 
-                {/* Links */}
-                <div className="mt-5 flex gap-4">
-                    <a
-                        href={githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-medium text-violet-600 hover:underline"
-                    >
-                        GitHub →
-                    </a>
-                    {liveUrl && (
-                        <a
-                            href={liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm font-medium text-green-600 hover:underline"
-                        >
-                            Live Demo →
-                        </a>
-                    )}
-                </div>
-            </div>
-        </motion.div>
-    );
+          {/* Tech Tags */}
+          <div className="flex flex-wrap gap-2">
+            {tech.map((item, idx) => (
+              <motion.span
+                key={idx}
+                whileHover={{ scale: 1.1 }}
+                className="px-3 py-1 text-xs font-medium rounded-full bg-violet-100/70 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 border border-violet-200/20 dark:border-violet-700/40 transition"
+              >
+                {item}
+              </motion.span>
+            ))}
+          </div>
+        </div>
+
+        {/* Links */}
+        <div className="mt-6 flex items-center gap-6">
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm font-semibold text-violet-600 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-300 transition"
+          >
+            <FiGithub className="text-lg" /> Code
+          </a>
+
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm font-semibold text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 transition"
+            >
+              <FiExternalLink className="text-lg" /> Live
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
 }

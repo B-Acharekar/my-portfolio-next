@@ -26,7 +26,7 @@ export default async function ProjectsSection() {
     const projects: Project[] = await client.fetch(query);
 
     return (
-        <section className="px-6 md:px-16 py-20 bg-gray-50 dark:bg-gray-950">
+        <section className="px-6 md:px-16 py-20 bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-black text-gray-900 dark:text-white transition-colors duration-300">
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold mb-10 text-violet-600 text-center md:text-left">
                     Projects

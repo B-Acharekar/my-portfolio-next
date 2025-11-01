@@ -1,10 +1,9 @@
-import AboutSection from '@/components/AboutSection'
-import Navbar from '@/components/Navbar'
+import AboutSection from '@/components/AboutSection';
 
 export default function AboutPage() {
   return (
-    <>
-    <AboutSection />
-    </>
-  )
+    <main className="bg-gray-50 dark:bg-gray-950 min-h-screen">
+      <AboutSection />
+    </main>
+  );
 }
