@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function AdminPage() {
   return (
@@ -19,12 +20,12 @@ export default function AdminPage() {
           Manage your content securely using the Sanity Studio dashboard.
         </p>
 
-        <a
+        <Link
           href="/studio"
           className="inline-block px-6 py-3 rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] transition-transform duration-300"
         >
           Go to Sanity Studio
-        </a>
+        </Link>
       </motion.div>
     </section>
   )

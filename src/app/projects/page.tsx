@@ -1,7 +1,8 @@
 import { client } from '@/sanity/lib/client';
-import { urlFor } from '@/sanity/lib/image';
 import ProjectCard from '@/components/ProjectCard';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Project = {
     _id: string;
     title: string;
@@ -9,7 +10,7 @@ type Project = {
     tech: string[];
     githubUrl: string;
     liveUrl?: string;
-    image: any;
+    image: SanityImageSource;
 };
 
 export default async function ProjectsSection() {

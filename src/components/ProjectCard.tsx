@@ -1,16 +1,19 @@
 'use client';
 
 import { urlFor } from '@/sanity/lib/image';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Project = {
   title: string;
   description: string;
   tech: string[];
   githubUrl: string;
   liveUrl?: string;
-  image: any;
+  image: SanityImageSource;
   delay?: number;
 };
 
@@ -36,7 +39,7 @@ export default function ProjectCard({
 
       {/* Image */}
       <div className="relative w-full h-52 overflow-hidden">
-        <img
+        <Image
           src={urlFor(image).width(800).url()}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
